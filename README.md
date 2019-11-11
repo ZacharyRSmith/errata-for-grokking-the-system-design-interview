@@ -1,6 +1,6 @@
 # Errata & Clarifications for "Grokking the System Design Interview"
 
-"Grokking the System Design Interview" is a popular study guide.  Unfortunately at least 3 of its pages have many errors.  This provides errata & clarifications on these 3 pages:
+"Grokking the System Design Interview" is a popular study guide.  Unfortunately at least 4 of its pages have many errors.  This provides errata & clarifications on these 4 pages:
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
@@ -12,6 +12,7 @@
   - [Section 3. Common Problems of Data Partitioning](#section-3-common-problems-of-data-partitioning)
 - [SQL vs. NoSQL](#sql-vs-nosql)
 - [CAP Theorem](#cap-theorem)
+- [Redundancy and Replication](#redundancy-and-replication)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -92,3 +93,9 @@ Correction on the image: RDBMSes often claim to have a config for sync replicati
 Correction on the image: Almost all instances of BigTable, MongoDB, and HBase are not CAP-consistent.
 
 Correction on the image: Almost all instances of Cassandra (and probably CouchDB, but I'm not familiar with it) are not CAP-available.
+
+
+# Redundancy and Replication
+
+
+Correction: This page speaks as if there is only one method to replicate: "The master gets all the updates, which then ripple through to the slaves. Each slave outputs a message stating that it has received the update successfully, thus allowing the sending of subsequent updates." This is false: there are other methods. Eg, the master's replication log could have a counter that orders writes, and these logs are sent ASAP to slaves. Some happened-later logs might arrive at a slave before happened-earlier logs, but the slave knows to not apply those logs because their counter is not the next count to apply.

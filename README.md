@@ -1,6 +1,6 @@
 # Errata & Clarifications for "Grokking the System Design Interview"
 
-"Grokking the System Design Interview" is a popular study guide.  Unfortunately at least 4 of its pages have many errors.  This provides errata & clarifications on these 4 pages:
+"Grokking the System Design Interview" is a popular study guide.  Unfortunately at least 4 of its pages have many errors.  This provides errata & clarifications on these 4 pages.  It is as much notes for myself as for others, so my apologies for any unclear language.
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
@@ -21,7 +21,7 @@
 
 General correction: This page speaks as if nodes have a 1-to-1 relationship with partitions. This is false: nodes usually have a 1-to-many relationship with partitions, and sometimes have 0 partitions. This enables moving entire partitions between nodes, rather than the less efficient moving of data between partitions.
 
-General clarification: This page speaks as if partitioning is usually implemented without replication. Eg: "On a partitioned database, there are certain extra constraints on the different operations that can be performed. Most of these constraints are due to the fact that operations across multiple tables or multiple rows in the same table will no longer run on the same server." This is false: partitioning is usually combined with replication.
+General clarification: This page speaks as if partitioning is usually implemented without replication.  This is false: partitioning is usually combined with replication.
 
 ## Section 1. Partitioning Methods
 
